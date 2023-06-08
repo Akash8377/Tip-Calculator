@@ -1,0 +1,316 @@
+body {
+    font-family: sans-serif;
+    -webkit-font-smoothing: auto;
+    -moz-font-smoothing: auto;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: auto;
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: inherit;
+  }
+  
+  :root {
+      --primary_Strong_cyan: hsl(172, 67%, 45%);
+  
+      --neutral_Very_dark_cyan: hsl(183, 100%, 15%);
+      --neutral_Dark_grayish_cyan: hsl(186, 14%, 43%);
+      --neutral_Grayish_cyan: hsl(184, 14%, 56%);
+      --neutral_Light_grayish_cyan: hsl(185, 41%, 84%);
+      --neutral_Very_light_grayish_cyan: hsl(189, 41%, 97%);
+      --neutral_White: hsl(0, 0%, 100%);
+  
+      --spacing: 40px;
+      --error: hsl(14, 61%, 47%);
+  
+  }
+  /* 
+  html,body{width: 100%;}
+  or you could remove the width from the body (ahmed)
+  
+  to solv the issue of the horizontal scrollbar:
+  it happens when the content of 
+  the page has a vertical scrollbar 
+  which will make the content of the
+  page be bigger than the window width
+  because (vw) unit doesn't consider the width after having 
+  vertical scroll par */
+  html,body{width: 100%;}
+  body {
+      /* width: 100vw; */
+      min-height: 100vh;
+      background-color: var(--neutral_Light_grayish_cyan);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+  }
+  
+  main {
+      font-family: 'Space Mono', monospace;
+      font-size: 24px;
+      width: 65%;
+  }
+  
+  main .title {
+      text-align: center;
+      font-size: 1.2em;
+      letter-spacing: 0.3em;
+      margin-bottom: 70px;
+      color: var(--neutral_Dark_grayish_cyan);
+  }
+  
+  main .calculator {
+      background-color: var(--neutral_White);
+      padding: var(--spacing);
+      border-radius: 20px;
+      min-height: 500px;
+      /* max-width:950px; */
+  
+      box-shadow: 0 20px 40px hsla(183, 100%, 15%, 0.1);
+      display: flex;
+      gap: var(--spacing);
+  }
+  
+  .input_section,
+  .output_section {
+      width: 50%;
+  }
+  
+  .input_section {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .input_field_container .field_title {
+      font-size: 0.8em;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .input_field_container .field_title h2 {
+      font-size: 0.8em;
+      color: var(--neutral_Dark_grayish_cyan);
+  }
+  
+  .input_field_container .field_title h2.error {
+      font-size: 0.65em;
+      color: var(--error);
+      transition: opacity ease-in-out 0.5s, transform ease-in-out 0.3s;
+      transform: translateY(-10px);
+      opacity: 0;
+  }
+  
+  .input_field_container .field_title h2.fire_error {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  
+  /* the text inputs with icons only */
+  .input_field:not(.flex-container) input {
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 13px;
+      background-position-x: 20px;
+      background-position-y: 50%;
+  
+  }
+  
+  #bill-field {
+      background-image: url(./images/icon-dollar.svg);
+  }
+  
+  .select-people {
+      background-image: url(./images/icon-person.svg);
+  
+  }
+  
+  .input_field input {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 0;
+      font-size: 1em;
+      background-color: var(--neutral_Very_light_grayish_cyan);
+      transition: outline ease-in-out 0.1s;
+      color: var(--neutral_Very_dark_cyan);
+      direction: rtl;
+      caret-color: var(--primary_Strong_cyan);
+  }
+  .input_error{
+      outline:3px solid var(--error);
+  }
+  
+  .input_field input::placeholder {
+      color: var(--neutral_Dark_grayish_cyan);
+  
+  }
+  
+  .input_field input:focus {
+      outline: 3px solid var(--primary_Strong_cyan);
+  
+  }
+  /* how to hide the Arrows from input number
+  https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
+   */
+  /* Chrome, Safari, Edge, Opera */
+  .input_field input[type=number]::-webkit-outer-spin-button,
+  .input_field input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  .input_field input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  .input_field.flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+  }
+  
+  .input_field.flex-container * {
+      font-size: 1em;
+      width: 30%;
+      padding: 7px;
+      border-radius: 5px;
+  }
+  
+  .input_field.flex-container #tip-custom::placeholder {
+      text-align: center;
+  }
+  
+  .input_field_container .flex-container button {
+      color: var(--neutral_White);
+      background-color: var(--neutral_Very_dark_cyan);
+      cursor: pointer;
+      border: none;
+      transition: background-color ease-in-out 0.1s;
+  }
+  
+  .input_field_container .flex-container button:hover {
+      background-color: var(--neutral_Light_grayish_cyan);
+      color: var(--neutral_Very_dark_cyan);
+  }
+  
+  .input_field_container .flex-container button:focus {
+      background-color: var(--primary_Strong_cyan);
+      outline: 0;
+      color: var(--neutral_Very_dark_cyan);
+  }
+  
+  .output_section {
+      border-radius: 10px;
+      background-color: var(--neutral_Very_dark_cyan);
+      padding: var(--spacing);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .output_section .info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap:wrap;
+      color: var(--neutral_White);
+      font-weight: normal;
+      margin-bottom: var(--spacing);
+  }
+  
+  .output_section .bill_result .text h3 {
+      font-size: 0.6em;
+  }
+  
+  .output_section .bill_result p {
+      font-size: 0.5em;
+      font-weight: lighter;
+      opacity: 0.5;
+  }
+  
+  .output_section .bill_result .result_number {
+      font-size: 1.6em;
+      color: var(--primary_Strong_cyan);
+  }
+  
+  .output_section button {
+      padding: 5px 0;
+      border-radius: 10px;
+      border: none;
+      color: var(--neutral_Very_dark_cyan);
+  
+  }
+  
+  .output_section button:not(:disabled) {
+      background-color: var(--primary_Strong_cyan);
+      cursor: pointer;
+      transition: background-color ease-in-out 0.3s;
+  }
+  
+  .output_section button:not(:disabled):hover {
+      background-color: var(--neutral_Light_grayish_cyan);
+  }
+  
+  .output_section button:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+  }
+  
+  @media (max-width:1134px) {
+      main {
+          width: 90%;
+      }
+  }
+  
+  @media (max-width:910px) {
+      body{
+          padding-top: 50px;
+      }
+      main {
+          width: 80%;
+      }
+      main .calculator {
+          flex-direction: column;
+          /* background-color: red; */
+          justify-content: stretch;
+      }
+      .input_section,
+      .output_section {
+          width: 100%;
+          flex-grow: 1;
+      }
+      .input_field.flex-container * {
+          width: 45%;
+      }
+  }
+  
+  @media (max-width:700px) {
+      :root{
+          --spacing: 20px;
+      }
+      main {
+          width: 100%;
+      }
+  
+      main .calculator {
+          min-height: 100vh;
+          border-radius:  20px 20px 0 0;
+      }
+  
+  }

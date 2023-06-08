@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title> Tip calculator app</title>
+</head>
+
+<body>
+    <main>
+        <h1 class="title">SPLI</br>TTER</h1>
+        <section class="calculator">
+            <section class="input_section">
+                <div class="input_field_container">
+                    <div class="field_title">
+                        <h2>Bill</h2>
+                        <h2 class="error"></h2>
+                    </div>
+                    <div class="input_field">
+                        <input type="number" placeholder="0" id="bill-field">
+                    </div>
+                </div>
+                <div class="input_field_container">
+                    <div class="field_title">
+                        <h2>Select Tip %</h2>
+                    </div>
+                    <div class="input_field flex-container">
+                        <button id="tip-5">5%</button>
+                        <button id="tip-10">10%</button>
+                        <button id="tip-15">15%</button>
+                        <button id="tip-25">25%</button>
+                        <button id="tip-50">50%</button>
+                        <input type="number" placeholder="Custom" id="tip-custom">
+                    </div>
+                </div>
+                <div class="input_field_container">
+                    <div class="field_title">
+                        <h2>Number of People</h2>
+                        <h2 class="error"></h2>
+                    </div>
+                    <div class="input_field">
+                        <input type="number" placeholder="0" id="select-people">
+                    </div>
+                </div>
+            </section>
+            <section class="output_section">
+                <div class="bill_result">
+                    <div class="info">
+                        <div class="text">
+                            <h3>Tip Amount</h3>
+                            <p>/ person</p>
+                        </div>
+                        <h4 class="result_number" id="tip_result">$0.00</h4>
+                    </div>
+                    <div class="info">
+                        <div class="text">
+                            <h3>Total</h3>
+                            <p>/ person</p>
+                        </div>
+                        <h4 class="result_number" id="total_result">$0.00</h4>
+                    </div>
+                </div>
+                <button class="reset" id="reset"disabled>RESET</button>
+            </section>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
